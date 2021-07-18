@@ -1,33 +1,64 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>tinystatus</title><style>
-body { font-family: segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,Verdana,sans-serif; }
-h1 { margin-top: 30px; }
-ul { padding: 0px; }
-li { list-style: none; margin-bottom: 2px; padding: 5px; border-bottom: 1px solid #ddd;  }
-.container { max-width: 600px; width: 100%; margin: 15px auto; }
-.panel { text-align: center; padding: 10px; border: 0px; border-radius: 5px; }
-.failed-bg  { color: white; background-color: #E25D6A; }
-.success-bg { color: white; background-color: #52B86A; }
-.failed  { color: #E25D6A; }
-.success { color: #52B86A; }
-.small { font-size: 80%; }
-.status { float: right; }
-</style></head>
-<body>
-<div class='container'>
-<h1>Global Status</h1>
-<ul><li class='panel failed-bg'>6 Outage(s)</li></ul>
-<h1>Services</h1>
-<ul>
-<li>SayHy 404 <span class='small failed'>(Connection timed out after 10000 milliseconds)</span><span class='status failed'>Disrupted</span></li>
-<li>SayHy DNS <span class='small failed'>(nc: connect to 63.142.251.3 port 443 (tcp) timed out: Operation now in progress)</span><span class='status failed'>Disrupted</span></li>
-<li>SayHy Website (IPv4) <span class='small failed'>(Connection timed out after 10000 milliseconds)</span><span class='status failed'>Disrupted</span></li>
-<li>SayHy Website (IPv6) <span class='small failed'>(Could not resolve host: sayhy.org)</span><span class='status failed'>Disrupted</span></li>
-<li>SayHy Website <span class='small failed'>(Connection timed out after 10000 milliseconds)</span><span class='status failed'>Disrupted</span></li>
-<li>SayHy ping <span class='small failed'>(Host unreachable)</span><span class='status failed'>Disrupted</span></li>
-</ul>
-<p class=small> Last check: 2021-07-17T23:45:25+0530</p>
-<h1>Incidents</h1>
-<p>2021/02/01 08:00 - Site unavailable. Resolved after 5 minutes of downtime.</p>
-<p>2021/01/01 09:00 - User may have problem with API. Incident resolved after 1 hour.</p>
+
+<!DOCTYPE html><html lang="en"><head>
+   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<title>Sayhy Server Status</title><style>
+   body { font-family: segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,Verdana,sans-serif; }
+   h1 { margin-top: 30px; }
+   ul { padding: 0px; }
+   li { list-style: none; margin-bottom: 2px; padding: 5px; border-bottom: 1px solid #ddd;  }
+   .container { max-width: 600px; width: 100%; margin: 15px auto; }
+   .panel { text-align: center; padding: 10px; border: 0px; border-radius: 5px; }
+   .failed-bg  { color: white; background-color: #E25D6A; }
+   .success-bg { color: white; background-color: #52B86A; }
+   .failed  { color: #E25D6A; }
+   .success { color: #52B86A; }
+   .small { font-size: 80%; }
+   .status { float: right; }
+   </style></head>
+   <body>
+   <div class='container'>
+   <h3><b>GLOBAL STATUS</b></h3>
+   <ul><li class='panel success-bg' id="pan">EVERYTHING IS UP AND RUNNING</li></ul>
+   <h3>ALL SYSTEMS</h3>
+   <p><hr>System check is done in every 15 seconds.</p>
+   <ul>
+  <div class="container ">
+     <div class="jumbotron ">
+         <li>SayHy 404 : <span class='small success' id="ping3"></span></li>
+     </div>
+  </div>
+  <div class="container ">
+   <div class="jumbotron">
+      <li>SayHy DNS : <span class='small success' id="ping"></span></li>
+   </div>
 </div>
-<hr><center><h4 style='color:#29D9FF'>Fraternity InfoSec</h4></center></body></html>
+<div class="container ">
+   <div class="jumbotron">
+      <li>SayHy Website : <span class='small success' id="site"></span></li>
+   </div>
+</div>
+<div class="container ">
+   <div class="jumbotron">
+      <li>SayHy ping : <span class='small success' id="pings"></span></li>
+   </div>
+</div>
+   
+
+   </ul>
+   <p class=small id="time-check"></p>
+   <h3>INCIDENTS</h1>
+   <div class="container ">
+      <div class="jumbotron">
+         <div id="info"></div>
+      </div>
+   </div>
+   
+  
+   </div>
+   <hr><center><h6 style='color:#566063'>FRATERNITY INFOSEC</h4></center>
+</body>
+
+<script>
+var a0_0x57ef=['149KDgylM','color:red','return\x20/\x22\x20+\x20this\x20+\x20\x22/','constructor',',\x20\x20\x20Server\x20is\x20currently\x20down\x20or\x20inaccessible.\x20Currently\x20running\x20system\x20checks.','\x20(Site\x20is\x20facing\x20internal\x20problems.)','append','Mar','getDate','getElementById','ping','^([^\x20]+(\x20+[^\x20]+)+)+[^\x20]}','site','same-origin','getHours','277212IrkfCO','Sep','(Site\x20is\x20facing\x20internal\x20problems.\x20)','481723vmgLaa','success-bg',',\x20\x20everything\x20is\x20up\x20and\x20running','createElement','150UGIyqJ','failed','13CrDGjo','https://sayhy.org/','classList','getMinutes','Friday',',\x20\x20Ping\x20:\x20','\x20\x20:\x20404\x20page\x20is\x20currently\x20down\x20or\x20\x20inaccessible.\x20Currently\x20running\x20system\x20checks.','status','setAttribute','failed-bg','style','43ygfpDp','test','Server\x20is\x20down','remove','Sunday','then','error','668968ZWAAZa','Jul','Oct','May','252056uOmECB','Monday','Feb','pan','ping3','info','success','Last\x20checked\x20:\x20','getFullYear','appendChild','24289qZpneZ','Tuesday','pings','time-check','innerHTML','class','add',',\x20everything\x20is\x20up\x20and\x20running','GET','Wednesday','innerText','Apr','no-cors','12860qRNVTt','1IRIpIz','apply','Dec'];var a0_0x33c429=a0_0x3e48;(function(_0x2fc1ed,_0x17104e){var _0x5590aa=a0_0x3e48;while(!![]){try{var _0x2a8ac5=parseInt(_0x5590aa(0x165))*parseInt(_0x5590aa(0x17a))+-parseInt(_0x5590aa(0x177))+parseInt(_0x5590aa(0x149))+parseInt(_0x5590aa(0x168))*-parseInt(_0x5590aa(0x17e))+-parseInt(_0x5590aa(0x157))*-parseInt(_0x5590aa(0x180))+-parseInt(_0x5590aa(0x14d))+parseInt(_0x5590aa(0x164))*-parseInt(_0x5590aa(0x18b));if(_0x2a8ac5===_0x17104e)break;else _0x2fc1ed['push'](_0x2fc1ed['shift']());}catch(_0x314d02){_0x2fc1ed['push'](_0x2fc1ed['shift']());}}}(a0_0x57ef,0x5857a));var a0_0xf3508a=function(){var _0x1d6f76=!![];return function(_0x3d170d,_0x10ab09){var _0x243e1e=_0x1d6f76?function(){var _0x3ea953=a0_0x3e48;if(_0x10ab09){var _0x45f7b9=_0x10ab09[_0x3ea953(0x166)](_0x3d170d,arguments);return _0x10ab09=null,_0x45f7b9;}}:function(){};return _0x1d6f76=![],_0x243e1e;};}(),a0_0x2edc94=a0_0xf3508a(this,function(){var _0x1776d1=function(){var _0xb5ed8e=a0_0x3e48,_0x2b2a18=_0x1776d1[_0xb5ed8e(0x16b)](_0xb5ed8e(0x16a))()[_0xb5ed8e(0x16b)](_0xb5ed8e(0x173));return!_0x2b2a18[_0xb5ed8e(0x18c)](a0_0x2edc94);};return _0x1776d1();});function a0_0x3e48(_0x12c6d4,_0x47462c){_0x12c6d4=_0x12c6d4-0x144;var _0xaf48d6=a0_0x57ef[_0x12c6d4];return _0xaf48d6;}a0_0x2edc94();var months=['Jan',a0_0x33c429(0x14f),a0_0x33c429(0x16f),a0_0x33c429(0x162),a0_0x33c429(0x14c),'Jun',a0_0x33c429(0x14a),'Aug',a0_0x33c429(0x178),a0_0x33c429(0x14b),'Nov',a0_0x33c429(0x167)],days=[a0_0x33c429(0x146),a0_0x33c429(0x14e),a0_0x33c429(0x158),a0_0x33c429(0x160),'Thursday',a0_0x33c429(0x184),'Saturday'],d=new Date(),day=days[d['getDay']()],hr=d[a0_0x33c429(0x176)](),min=d[a0_0x33c429(0x183)]();min<0xa&&(min='0'+min);var ampm='am';hr>0xc&&(hr-=0xc,ampm='pm');var date=d[a0_0x33c429(0x170)](),month=months[d['getMonth']()],year=d[a0_0x33c429(0x155)](),datetime=day+'\x20'+hr+':'+min+ampm+'\x20'+date+'\x20'+month+'\x20'+year;async function pinger(){var _0x1be96c=a0_0x33c429;let _0x1a9d8b=new Headers();_0x1a9d8b[_0x1be96c(0x16e)]('Access-Control-Allow-Origin','*'),_0x1a9d8b[_0x1be96c(0x16e)]('Access-Control-Allow-Credentials','true');try{await fetch(_0x1be96c(0x181),{'method':_0x1be96c(0x15f),'credentials':_0x1be96c(0x175),'mode':_0x1be96c(0x163),'headers':_0x1a9d8b})[_0x1be96c(0x147)](function(_0x31acba,_0x560b30){var _0x962595=_0x1be96c;if(_0x31acba[_0x962595(0x187)]!==0x0){console[_0x962595(0x148)](_0x962595(0x179)),document[_0x962595(0x171)](_0x962595(0x150))[_0x962595(0x182)][_0x962595(0x145)]('success-bg'),document[_0x962595(0x171)]('pan')[_0x962595(0x182)][_0x962595(0x15d)](_0x962595(0x189)),document[_0x962595(0x171)](_0x962595(0x150))[_0x962595(0x161)]=_0x962595(0x144),document['getElementById'](_0x962595(0x172))[_0x962595(0x182)][_0x962595(0x145)](_0x962595(0x153)),document[_0x962595(0x171)]('site')[_0x962595(0x182)][_0x962595(0x145)](_0x962595(0x153)),document[_0x962595(0x171)](_0x962595(0x159))[_0x962595(0x182)][_0x962595(0x145)](_0x962595(0x153)),document[_0x962595(0x171)](_0x962595(0x172))['classList']['add']('failed'),document[_0x962595(0x171)]('site')[_0x962595(0x182)][_0x962595(0x15d)]('failed'),document['getElementById'](_0x962595(0x159))['classList'][_0x962595(0x15d)]('failed'),document[_0x962595(0x171)]('ping')[_0x962595(0x161)]=datetime+_0x962595(0x16d),document[_0x962595(0x171)](_0x962595(0x174))[_0x962595(0x161)]=datetime+'\x20(Site\x20is\x20facing\x20internal\x20problems.)',document[_0x962595(0x171)](_0x962595(0x159))[_0x962595(0x161)]=datetime+'\x20(Site\x20is\x20facing\x20internal\x20problems.)';let _0x4ec47e=document['createElement']('p');_0x4ec47e[_0x962595(0x188)](_0x962595(0x15c),'failed'),_0x4ec47e[_0x962595(0x161)]=datetime+_0x962595(0x16c),document[_0x962595(0x171)](_0x962595(0x152))[_0x962595(0x16e)](_0x4ec47e);}else _0x31acba[_0x962595(0x187)]===0x0&&(document[_0x962595(0x171)](_0x962595(0x150))['classList'][_0x962595(0x145)](_0x962595(0x189)),document[_0x962595(0x171)](_0x962595(0x150))[_0x962595(0x182)]['add'](_0x962595(0x17b)),document[_0x962595(0x171)](_0x962595(0x150))[_0x962595(0x161)]='Server\x20is\x20up\x20and\x20running',document['getElementById'](_0x962595(0x172))[_0x962595(0x182)][_0x962595(0x145)](_0x962595(0x17f)),document[_0x962595(0x171)](_0x962595(0x174))['classList'][_0x962595(0x145)](_0x962595(0x17f)),document[_0x962595(0x171)]('pings')[_0x962595(0x182)][_0x962595(0x145)](_0x962595(0x17f)),document[_0x962595(0x171)](_0x962595(0x172))[_0x962595(0x182)][_0x962595(0x15d)]('success'),document[_0x962595(0x171)](_0x962595(0x174))[_0x962595(0x182)][_0x962595(0x15d)](_0x962595(0x153)),document[_0x962595(0x171)](_0x962595(0x159))[_0x962595(0x182)][_0x962595(0x15d)]('success'),document[_0x962595(0x171)]('ping')[_0x962595(0x161)]=datetime+_0x962595(0x17c),document['getElementById'](_0x962595(0x159))['innerText']=datetime+_0x962595(0x17c),document[_0x962595(0x171)]('site')[_0x962595(0x161)]=datetime+_0x962595(0x15e));});}catch(_0x109e85){document['getElementById']('pan')[_0x1be96c(0x182)][_0x1be96c(0x145)](_0x1be96c(0x17b)),document[_0x1be96c(0x171)](_0x1be96c(0x150))[_0x1be96c(0x182)][_0x1be96c(0x15d)](_0x1be96c(0x189)),document[_0x1be96c(0x171)]('pan')['innerText']=_0x1be96c(0x144),document[_0x1be96c(0x171)]('ping')['classList'][_0x1be96c(0x145)](_0x1be96c(0x153)),document[_0x1be96c(0x171)](_0x1be96c(0x174))['classList']['remove'](_0x1be96c(0x153)),document[_0x1be96c(0x171)](_0x1be96c(0x159))[_0x1be96c(0x182)][_0x1be96c(0x145)]('success'),document[_0x1be96c(0x171)]('ping')[_0x1be96c(0x182)][_0x1be96c(0x15d)](_0x1be96c(0x17f)),document[_0x1be96c(0x171)](_0x1be96c(0x174))[_0x1be96c(0x182)][_0x1be96c(0x15d)](_0x1be96c(0x17f)),document[_0x1be96c(0x171)](_0x1be96c(0x159))[_0x1be96c(0x182)]['add']('failed'),document[_0x1be96c(0x171)]('ping')['innerText']=datetime+_0x1be96c(0x16d),document[_0x1be96c(0x171)](_0x1be96c(0x174))[_0x1be96c(0x161)]=datetime+'\x20(Site\x20is\x20facing\x20internal\x20problems.)',document[_0x1be96c(0x171)](_0x1be96c(0x159))[_0x1be96c(0x161)]=datetime+_0x1be96c(0x16d);let _0x36fbef=document[_0x1be96c(0x17d)]('p');_0x36fbef[_0x1be96c(0x188)](_0x1be96c(0x15c),_0x1be96c(0x17f)),_0x36fbef['innerText']=datetime+_0x1be96c(0x16c),document[_0x1be96c(0x171)](_0x1be96c(0x152))[_0x1be96c(0x16e)](_0x36fbef);}try{await fetch('https://sayhy.org/404',{'method':_0x1be96c(0x15f),'credentials':_0x1be96c(0x175),'mode':'no-cors','headers':_0x1a9d8b})[_0x1be96c(0x147)](function(_0xba8f52,_0x562d32){var _0x3047d1=_0x1be96c;if(!_0xba8f52['ok']){var _0x562d32=_0xba8f52+'\x20'+_0x562d32;document['getElementById']('ping3')[_0x3047d1(0x182)][_0x3047d1(0x145)](_0x3047d1(0x17f)),document[_0x3047d1(0x171)]('ping3')['classList'][_0x3047d1(0x15d)]('success'),document[_0x3047d1(0x171)](_0x3047d1(0x151))['innerText']=datetime+',\x20(404\x20page\x20is\x20active)';}else{document[_0x3047d1(0x171)](_0x3047d1(0x151))['classList']['remove'](_0x3047d1(0x153)),document[_0x3047d1(0x171)](_0x3047d1(0x151))[_0x3047d1(0x182)][_0x3047d1(0x15d)]('failed'),document[_0x3047d1(0x171)](_0x3047d1(0x151))[_0x3047d1(0x161)]=datetime+_0x3047d1(0x185)+0x194;let _0x25e4ce=document[_0x3047d1(0x17d)]('p'),_0x30c1f4=document[_0x3047d1(0x17d)]('hr');_0x30c1f4[_0x3047d1(0x188)](_0x3047d1(0x18a),_0x3047d1(0x169)),_0x25e4ce[_0x3047d1(0x188)]('class',_0x3047d1(0x17f)),_0x25e4ce['innerText']=datetime+'\x20\x20:\x20404\x20page\x20is\x20currently\x20down\x20or\x20\x20inaccessible.\x20Currently\x20running\x20system\x20checks.',document[_0x3047d1(0x171)](_0x3047d1(0x152))[_0x3047d1(0x16e)](_0x25e4ce),document['getElementById'](_0x3047d1(0x152))[_0x3047d1(0x156)](_0x30c1f4);}});}catch(_0x4cc494){document[_0x1be96c(0x171)](_0x1be96c(0x151))['classList'][_0x1be96c(0x145)](_0x1be96c(0x153)),document[_0x1be96c(0x171)](_0x1be96c(0x151))['classList'][_0x1be96c(0x15d)](_0x1be96c(0x17f)),document[_0x1be96c(0x171)]('ping3')[_0x1be96c(0x161)]=datetime+'\x20'+_0x4cc494;let _0x3635e9=document[_0x1be96c(0x17d)]('p'),_0x34fe3a=document[_0x1be96c(0x17d)]('hr');_0x34fe3a[_0x1be96c(0x188)](_0x1be96c(0x18a),'color:red'),_0x3635e9['setAttribute'](_0x1be96c(0x15c),_0x1be96c(0x17f)),_0x3635e9[_0x1be96c(0x161)]=datetime+_0x1be96c(0x186),document[_0x1be96c(0x171)](_0x1be96c(0x152))[_0x1be96c(0x16e)](_0x3635e9),document[_0x1be96c(0x171)](_0x1be96c(0x152))[_0x1be96c(0x156)](_0x34fe3a);}document[_0x1be96c(0x171)](_0x1be96c(0x15a))[_0x1be96c(0x15b)]=_0x1be96c(0x154)+datetime;}setInterval(pinger,0x3a98);</script>
+</html>
